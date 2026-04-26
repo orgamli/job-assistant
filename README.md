@@ -15,7 +15,7 @@ using the Anthropic Claude API.
 - Python
 - Streamlit
 - Anthropic Claude API
-- python-docx / pdf2docx
+- python-docx
 
 ## How to Run Locally
 
