@@ -1,10 +1,19 @@
 import json
+import os
 import anthropic
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
 
-client = anthropic.Anthropic()
+api_key = os.getenv("ANTHROPIC_API_KEY") or st.secrets.get("ANTHROPIC_API_KEY")
+if not api_key:
+    raise EnvironmentError(
+        "ANTHROPIC_API_KEY not found. Set it in your .env file (local) "
+        "or in Streamlit Cloud secrets (deployed)."
+    )
+
+client = anthropic.Anthropic(api_key=api_key)
 MODEL = "claude-sonnet-4-6"
 
 
